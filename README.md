@@ -69,4 +69,4 @@ python -m unittest tests/test_hematopoiesis.py
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
-This project was developed with inspiration and support from the lab of Dr. Katie Kathrein at the Biology Department of the University of South Carolina.
+This project was conducted in collaboration with the laboratory of Dr. Katie Kathrein at the Biology Department, University of South Carolina
