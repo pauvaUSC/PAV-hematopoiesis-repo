@@ -1,7 +1,7 @@
 # PAV Hematopoiesis Repository
 
 ## Overview
-This repository contains a comprehensive project for modeling, analyzing, and visualizing hematopoiesis data. It includes scripts for running simulations, performing sensitivity analysis, and generating visualizations, all structured for easy use and exploration.
+Understanding hematopoietic stem cell (HSC) maintenance and differentiation is challenging due to the complexity of the process and difficulties in observing cellular interactions. This repository provides a quantitative solution: a stochastic dynamical model for LT-HSCs and ST-HSCs. The model accounts for cellular stochasticity, predicts homeostasis, and allows for the simulation of different biological conditions.
 
 ![PAV Hematopoiesis Repository](images/model.png)
 
