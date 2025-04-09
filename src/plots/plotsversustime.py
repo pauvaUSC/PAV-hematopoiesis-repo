@@ -5,7 +5,7 @@ from hematopoiesis_model_v2 import simulate_hematopoiesis, params
 # Simulation parameters
 initial_lt_hsc_count = 2 * 250
 initial_st_hsc_count = 5 * 2 * 250
-initial_lt_quiescent = 5 * 750
+initial_lt_quiescent = 2 * 750
 initial_st_quiescent = 5 * 2 * 250
 time_steps = 7 * 50
 sample_days = list(range(0, time_steps, 7))  # If time steps is 7*n, this will produce n samples
