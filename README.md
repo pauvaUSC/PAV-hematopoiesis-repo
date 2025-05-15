@@ -7,6 +7,12 @@ Understanding hematopoietic stem cell (HSC) maintenance and differentiation is c
     <img src="images/model.png" alt="PAV Hematopoiesis Repository" width="500"/>
 </div>
 
+## Model Parameters
+Model parameters are summarize in the GUI application.  To run the GUI both the hematopoiesis_gui.py and the hematopoiesis_model_v3.py should be in the same folder.
+
+<div align="center">
+    <img src="images/GUI_screenshot.png" alt="PAV Hematopoiesis Repository" width="500"/>
+</div>
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
