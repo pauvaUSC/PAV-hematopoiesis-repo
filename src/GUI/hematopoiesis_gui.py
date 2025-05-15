@@ -60,10 +60,9 @@ def run_simulation():
         run_button.config(state="normal")
 
 def plot_results(sample_days, counts):
-    # Clear only the plot area (not the "Save Plot" button)
+    # Clear the plot area (remove both the plot canvas and placeholder label)
     for widget in plot_frame.winfo_children():
-        if isinstance(widget, FigureCanvasTkAgg) or isinstance(widget, ttk.Label):  # Remove plot canvas and placeholder
-            widget.destroy()
+        widget.destroy()  # Destroy all widgets in the plot_frame
 
     # LT-HSC counts
     time_points = sample_days
@@ -250,15 +249,15 @@ for section, parameters in sections.items():
 
 # Add a button to run the simulation
 run_button = ttk.Button(input_frame, text="Run Simulation", command=run_simulation)
-run_button.grid(row=8, column=0, columnspan=2, pady=10)
+run_button.grid(row=8, column=0, padx=5, pady=10, sticky="ew")
+
+# Add a button to save the plot next to the "Run Simulation" button
+save_button = ttk.Button(input_frame, text="Save Plot", command=save_plot)
+save_button.grid(row=8, column=1, padx=5, pady=10, sticky="ew")
 
 # Create a frame for the plot with a placeholder
 plot_frame = ttk.Frame(root)
 plot_frame.pack(side=tk.RIGHT, padx=10, pady=10, fill=tk.BOTH, expand=True)
-
-# Add a "Save Plot" button to the top of the plot area
-save_button = ttk.Button(plot_frame, text="Save Plot", command=save_plot)
-save_button.pack(side=tk.TOP, padx=10, pady=5)
 
 # Add a placeholder label for the plot area
 placeholder_label = ttk.Label(plot_frame, text="Plots will appear here", foreground="gray", anchor="center")
