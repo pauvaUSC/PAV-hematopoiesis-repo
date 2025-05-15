@@ -8,23 +8,6 @@ Understanding hematopoietic stem cell (HSC) maintenance and differentiation is c
 </div>
 
 
-## Installation
-To set up the project, clone the repository and install the required dependencies:
-
-```bash
-git clone <repository-url>
-cd PAV-hematopoiesis-repo
-pip install -r requirements.txt
-```
-
-## Usage
-### Running the Model
-To run the updated hematopoiesis model, use the following command:
-
-```bash
-python src/models/hematopoiesis_model_v3.py
-```
-
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
