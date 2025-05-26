@@ -13,7 +13,7 @@ sample_daysexp = [46, 74, 97, 137, 161, 191, 218, 256]
 # Simulation parameters
 time_steps = sample_daysexp[-1] + 5
 sample_days = sample_daysexp
-num_seeds = 5  # Number of seeds for stochastic runs
+num_seeds = 20  # Number of seeds for stochastic runs
 
 # Define the search space for the parameters to fit
 search_space = [
