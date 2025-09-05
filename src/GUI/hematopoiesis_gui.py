@@ -124,10 +124,30 @@ def save_plot():
 root = tk.Tk()
 root.title("Hematopoiesis Model Simulation")
 
-# Create input fields for initial conditions
-input_frame = ttk.Frame(root)
-input_frame.pack(side=tk.LEFT, padx=10, pady=10, fill=tk.Y)
+# Create a canvas and scrollbar for the input section
+input_canvas = tk.Canvas(root, borderwidth=0, background="#f0f0f0", height=600, width=600)
+input_scrollbar = ttk.Scrollbar(root, orient="vertical", command=input_canvas.yview)
+input_canvas.configure(yscrollcommand=input_scrollbar.set)
+input_canvas.pack(side=tk.LEFT, fill=tk.Y, expand=False)
+input_scrollbar.pack(side=tk.LEFT, fill=tk.Y)
 
+# Create the input_frame inside the canvas
+input_frame = ttk.Frame(input_canvas)
+input_window = input_canvas.create_window((0, 0), window=input_frame, anchor="nw")
+
+# Prevent grid columns from expanding
+input_frame.grid_columnconfigure(0, weight=0)
+input_frame.grid_columnconfigure(1, weight=0)
+
+def on_frame_configure(event):
+    input_canvas.configure(scrollregion=input_canvas.bbox("all"))
+input_frame.bind("<Configure>", on_frame_configure)
+
+def _on_mousewheel(event):
+    input_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+input_canvas.bind_all("<MouseWheel>", _on_mousewheel)
+
+# Create input fields for initial conditions
 ttk.Label(input_frame, text="Initial LT-HSC Active:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
 lt_hsc_count_entry = ttk.Entry(input_frame)
 lt_hsc_count_entry.grid(row=0, column=1, padx=10, pady=5)
@@ -248,12 +268,11 @@ for section, parameters in sections.items():
         param_entries[param] = entry
 
 # Add a button to run the simulation
-run_button = ttk.Button(input_frame, text="Run Simulation", command=run_simulation)
-run_button.grid(row=8, column=0, padx=5, pady=10, sticky="ew")
+run_button = ttk.Button(input_frame, text="Run Simulation", command=run_simulation, width=10)
+run_button.grid(row=8, column=0, padx=(5,2), pady=10)
 
-# Add a button to save the plot next to the "Run Simulation" button
-save_button = ttk.Button(input_frame, text="Save Plot", command=save_plot)
-save_button.grid(row=8, column=1, padx=5, pady=10, sticky="ew")
+save_button = ttk.Button(input_frame, text="Save Plot", command=save_plot, width=10)
+save_button.grid(row=8, column=1, padx=(10,4), pady=10)
 
 # Create a frame for the plot with a placeholder
 plot_frame = ttk.Frame(root)
